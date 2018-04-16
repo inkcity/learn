@@ -38,10 +38,11 @@ Vue.component('login',{
     },
     methods: {
         submit: function() {
-            axios.post('http://localhost:8080/Demo2/login', {
-                username: this.username,
-                password: this.password
-            }).then(function (response) {
+            var params = new URLSearchParams();
+            params.append('username', this.username);
+            params.append('password', this.password)
+            axios.post('http://localhost:8080/demo/login', params
+            ).then(function (response) {
                 console.log(response);
             }).catch(function (error) {
                 console.log(error);
