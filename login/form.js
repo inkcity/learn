@@ -1,3 +1,8 @@
+Vue.component("photo", {
+    props: ["username"],
+    template: `<h1>hello, {{username}}</h1>`
+})
+
 new Vue({
     el: '#index',
     data: {
@@ -9,8 +14,8 @@ new Vue({
         submit: function() {
             var params = new URLSearchParams();
             params.append('username', this.username);
-            params.append('password', this.password)
-            var vm = this
+            params.append('password', this.password);
+            var vm = this;
             axios.post('http://localhost:8080/demo/login', params
             ).then(function (response) {
                 vm.seen = !response.data.msg;

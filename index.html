@@ -26,7 +26,7 @@
 </head>
 <body>
     <div id="index">
-        <div class="container">
+        <div v-if="seen" class="container">
             <form class="form-horizontal" method="post">
                 <div class="form-group">
                     <label for="inputEmail3" class="col-lg-2 control-label">Email</label>
@@ -55,8 +55,8 @@
                     </div>
                 </div>
             </form>
-            <p v-if="seen">hello</p>
         </div>
+        <photo v-if="!seen" :username="username"></photo>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="bootstrap3/js/jquery.min.js"></script>
